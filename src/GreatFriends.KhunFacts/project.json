@@ -1,20 +1,27 @@
 {
   "version": "1.0.0-*",
-
-  "dependencies": {
-    "GreatFriends.Khun": "1.0.0-*",
-    "NETStandard.Library": "1.6.0",
-    "xunit": "2.2.0-beta3-build3402" 
+  "buildOptions": {
+    "debugType": "portable"
   },
-
+  "dependencies": {
+    "GreatFriends.Khun": "0.1.0-*",
+    "System.Runtime.Serialization.Primitives": "4.1.1",
+    "xunit": "2.1.0",
+    "dotnet-test-xunit": "2.2.0-preview2-build1029"
+  },
+  "testRunner": "xunit",
   "frameworks": {
-    "net461": {
+    "netcoreapp1.0": {
       "dependencies": {
-        "xunit.runner.visualstudio": "2.2.0-beta3-build1187" 
-      }
-    },
-    "netstandard1.6": {
-      "imports": "dnxcore50"
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.1"
+        }
+      },
+      "imports": [
+        "dotnet5.4",
+        "portable-net451+win8"
+      ]
     }
   }
 }
