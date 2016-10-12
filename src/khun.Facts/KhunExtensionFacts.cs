@@ -77,5 +77,13 @@ namespace GreatFriends.KhunFacts
             Assert.Equal("คุณชื่อ นามสกุล", "ด.ญ. ชื่อ นามสกุล".AsKhun());
             Assert.Equal("คุณชื่อ นามสกุล", "อ. ชื่อ นามสกุล".AsKhun());
         }
+
+        [Fact]
+        public void Kunakorn() { 
+            Assert.Equal("คุณคุณากร นามสกุล", "คุณากร นามสกุล".AsKhun());
+            Assert.Equal("คุณคุณากร นามสกุล", "นายคุณากร นามสกุล".AsKhun());
+            Assert.Equal("คุณคุณากร นามสกุล", "คุณคุณากร นามสกุล".AsKhun());
+        }
+
     }
 }
