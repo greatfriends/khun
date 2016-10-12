@@ -1,0 +1,1 @@
+dotnet pack src/khun -c Release -o src/khun/Nuget 
