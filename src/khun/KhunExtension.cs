@@ -19,7 +19,11 @@ namespace GreatFriends.Khun {
 
     public static string AsKhun(this string name) {
 
+      if (name == null) return string.Empty;
+
       name = name.Trim();
+
+      if (name.Length == 0) return string.Empty;
 
       string[] parts = name.Split(new char[] { ' ' },
         StringSplitOptions.RemoveEmptyEntries);
