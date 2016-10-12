@@ -1,11 +1,9 @@
 ﻿{
   "title": "khun",
-  "version": "0.2.0-*",
+  "version": "0.2.1-*",
   "copyright": "Copyright (c) 2016 Suthep Sangvirotjanaphat and Contributors",
   "description": "แปลงชื่อให้นำหน้าด้วยคุณ เช่น 'นายสุเทพ'.AsKhun() ได้ผลลัพธ์ 'คุณสุเทพ' ไม่ใช่ 'คุณนายสุเทพ'",
-
   "packOptions": {
-    
     "owners": [
       "surrealist"
     ],
@@ -15,12 +13,13 @@
       "type": "git"
     },
     "tags": [
-      "Thai", "person", "name", "prefix", "title name", "khun" 
+      "Thai",
+      "person",
+      "name",
+      "prefix",
+      "title name",
+      "khun"
     ]
-  },
-
-  "dependencies": {
-    "NETStandard.Library": "1.6.0"
   },
   "frameworks": {
     "net35": {},
@@ -29,7 +28,10 @@
     "net451": {},
     "net461": {},
     "netstandard1.6": {
-      "imports": "dnxcore50"
+      "imports": "dnxcore50",
+      "dependencies": {
+        "NETStandard.Library": "1.6.0"
+      }
     }
   }
 }
