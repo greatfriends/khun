@@ -4,10 +4,10 @@
     "debugType": "portable"
   },
   "dependencies": {
-    "GreatFriends.Khun": "0.1.0-*",
     "System.Runtime.Serialization.Primitives": "4.1.1",
     "xunit": "2.1.0",
-    "dotnet-test-xunit": "2.2.0-preview2-build1029"
+    "dotnet-test-xunit": "2.2.0-preview2-build1029",
+    "khun": "0.2.2-*"
   },
   "testRunner": "xunit",
   "frameworks": {
