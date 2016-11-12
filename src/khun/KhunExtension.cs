@@ -1,4 +1,4 @@
-﻿using System; 
+﻿using System;
 
 namespace GreatFriends.Khun {
   public static class KhunExtension {
