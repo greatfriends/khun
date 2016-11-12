@@ -1,15 +1,17 @@
 {
   "version": "1.0.0-*",
   "buildOptions": {
-    "debugType": "portable"
-  },
+    "debugType": "portable",
+    "copyToOutput": {
+      "include": [ "xunit.runner.json" ]
+    }  },
   "dependencies": {
     "System.Runtime.Serialization.Primitives": "4.1.1",
     "xunit": "2.1.0",
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
     "khun": "0.2.2-*"
   },
-  "testRunner": "xunit",
+  "testRunner": "xunit", 
   "frameworks": {
     "netcoreapp1.0": {
       "dependencies": {
