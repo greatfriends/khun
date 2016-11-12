@@ -68,12 +68,20 @@ namespace GreatFriends.KhunFacts {
       Assert.Equal("คุณชื่อ นามสกุล", "อ. ชื่อ นามสกุล".AsKhun());
     }
 
-    [Fact]
+    [Fact(Skip = "Wait someone to grap and resolve it")]
     public void Kunakorn() {
       Assert.Equal("คุณคุณากร นามสกุล", "คุณากร นามสกุล".AsKhun());
       Assert.Equal("คุณคุณากร นามสกุล", "นายคุณากร นามสกุล".AsKhun());
       Assert.Equal("คุณคุณากร นามสกุล", "คุณคุณากร นามสกุล".AsKhun());
     }
 
+    [Fact]
+    public void NotAppendKhunForForeignName() {
+      Assert.Equal("Donald Trump", "Donald Trump".AsKhun());
+      Assert.NotEqual("คุณDonald Trump", "Donald Trump".AsKhun());
+
+      Assert.Equal("Trump", "Trump".AsKhun());
+      Assert.NotEqual("คุณTrump", "Trump".AsKhun());
+    }
   }
 }

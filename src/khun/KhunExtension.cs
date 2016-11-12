@@ -18,6 +18,8 @@ namespace GreatFriends.Khun {
 
 
     public static string AsKhun(this string name) {
+      string khun = "คุณ";
+          string firstName;
 
       if (name == null) return string.Empty;
 
@@ -32,15 +34,32 @@ namespace GreatFriends.Khun {
         return string.Join(" ", parts);
       }
 
+      firstName = parts[0];
       for (int i = 0; i < prefixes.Length; i++) {
         if (parts[0].StartsWith(prefixes[i])) {
           int len = prefixes[i].Length;
-          parts[0] = parts[0].Substring(len, parts[0].Length - len);
+
+          firstName = parts[0].Substring(len, parts[0].Length - len);
+
+          parts[0] = firstName;
           break;
         }
       }
 
-      return "คุณ" + string.Join(" ", parts).TrimStart();
+      if (ContainsNonThaiCharacters(firstName)) {
+        khun = string.Empty;
+      }
+
+      return khun + string.Join(" ", parts).TrimStart();
+    }
+
+    private static bool ContainsNonThaiCharacters(string text) {
+      foreach (var ch in text) {
+        if (!(0x0e00 <= (uint)ch && (uint)ch <= 0x0e7f)) {
+          return true;
+        }
+      }
+      return false;
     }
   }
 
