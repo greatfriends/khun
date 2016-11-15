@@ -3,6 +3,7 @@
 namespace GreatFriends.Khun {
   public static class KhunExtension {
 
+    private const string Khun = "คุณ";
     private static string[] prefixes = new string[] {
         "นาย",
         "นางสาว",
@@ -18,7 +19,7 @@ namespace GreatFriends.Khun {
 
 
     public static string AsKhun(this string name) {
-      string khun = "คุณ";
+      string khunToPrepend = Khun;
       string firstName;
 
       if (name == null) return string.Empty;
@@ -30,12 +31,12 @@ namespace GreatFriends.Khun {
       string[] parts = name.Split(new char[] { ' ' },
         StringSplitOptions.RemoveEmptyEntries);
 
-      if (parts[0] == "คุณ") {
-        parts[0] = "";
-        firstName = parts.Length > 1 ? parts[1] : "";
+      if (parts[0] == Khun) {
+        parts[0] = string.Empty;
+        firstName = parts.Length > 1 ? parts[1] : null;
       }
       else {
-        if (parts[0].StartsWith("คุณ")) {
+        if (parts[0].StartsWith(Khun)) {
           return string.Join(" ", parts);
         }
 
@@ -53,10 +54,10 @@ namespace GreatFriends.Khun {
       }
 
       if (ContainsNonThaiCharacters(firstName)) {
-        khun = string.Empty;
+        khunToPrepend = string.Empty;
       }
 
-      return khun + string.Join(" ", parts).TrimStart();
+      return khunToPrepend + string.Join(" ", parts).TrimStart();
     }
 
     private static bool ContainsNonThaiCharacters(string text) {
