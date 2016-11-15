@@ -19,7 +19,7 @@ namespace GreatFriends.Khun {
 
     public static string AsKhun(this string name) {
       string khun = "คุณ";
-          string firstName;
+      string firstName;
 
       if (name == null) return string.Empty;
 
@@ -30,19 +30,25 @@ namespace GreatFriends.Khun {
       string[] parts = name.Split(new char[] { ' ' },
         StringSplitOptions.RemoveEmptyEntries);
 
-      if (parts[0].StartsWith("คุณ")) {
-        return string.Join(" ", parts);
+      if (parts[0] == "คุณ") {
+        parts[0] = "";
+        firstName = parts.Length > 1 ? parts[1] : "";
       }
+      else {
+        if (parts[0].StartsWith("คุณ")) {
+          return string.Join(" ", parts);
+        }
 
-      firstName = parts[0];
-      for (int i = 0; i < prefixes.Length; i++) {
-        if (parts[0].StartsWith(prefixes[i])) {
-          int len = prefixes[i].Length;
+        firstName = parts[0];
+        for (int i = 0; i < prefixes.Length; i++) {
+          if (parts[0].StartsWith(prefixes[i])) {
+            int len = prefixes[i].Length;
 
-          firstName = parts[0].Substring(len, parts[0].Length - len);
+            firstName = parts[0].Substring(len, parts[0].Length - len);
 
-          parts[0] = firstName;
-          break;
+            parts[0] = firstName;
+            break;
+          }
         }
       }
 

@@ -83,5 +83,11 @@ namespace GreatFriends.KhunFacts {
       Assert.Equal("Trump", "Trump".AsKhun());
       Assert.NotEqual("คุณTrump", "Trump".AsKhun());
     }
+
+    [Fact]
+    public void KhunWithSpace_ShouldBeTruncated() {
+      Assert.Equal("คุณชื่อ นามสกุล", "คุณ ชื่อ นามสกุล".AsKhun());
+      Assert.NotEqual("คุณ ชื่อ นามสกุล", "คุณ ชื่อ นามสกุล".AsKhun());
+    }
   }
 }
