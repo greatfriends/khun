@@ -1,9 +1,10 @@
 ﻿{
   "title": "khun",
-  "version": "0.3.0-*",
+  "version": "0.3.1-*",
   "authors": [
     "surrealist"
   ],
+  "projectUrl": "http://github.com/greatfriends/khun",
   "copyright": "Copyright (c) 2016 Suthep Sangvirotjanaphat and Contributors",
   "description": "แปลงชื่อให้นำหน้าด้วยคุณ เช่น 'นายสุเทพ'.AsKhun() ได้ผลลัพธ์ 'คุณสุเทพ' ไม่ใช่ 'คุณนายสุเทพ'",
   "packOptions": {
