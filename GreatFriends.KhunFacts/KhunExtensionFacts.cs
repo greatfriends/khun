@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using GreatFriends.Khun;
 using Xunit;
+using Xunit2.Should;
 
 namespace GreatFriends.KhunFacts
 {
@@ -13,37 +14,37 @@ namespace GreatFriends.KhunFacts
     [Fact]
     public void EmptyString()
     {
-      Assert.Equal("", "".AsKhun());
+      "".AsKhun().ShouldBeEqual(""); 
     }
 
     [Fact]
     public void Null()
     {
-      Assert.Equal("", ((string)null).AsKhun());
+      ((string)null).AsKhun().ShouldBeEqual("");
     }
 
     [Fact]
     public void JustName()
-    {
-      Assert.Equal("คุณชื่อ นามสกุล", "ชื่อ นามสกุล".AsKhun());
+    { 
+      "ชื่อ นามสกุล".AsKhun().ShouldBeEqual("คุณชื่อ นามสกุล");
     }
 
     [Fact]
     public void AlreadyHasKhun()
-    {
-      Assert.Equal("คุณชื่อ นามสกุล", "คุณชื่อ นามสกุล".AsKhun());
+    { 
+      "คุณชื่อ นามสกุล".AsKhun().ShouldBeEqual("คุณชื่อ นามสกุล");
     }
 
     [Fact]
     public void TrimName()
     {
-      Assert.Equal("คุณชื่อ นามสกุล", " คุณชื่อ นามสกุล ".AsKhun());
+      " คุณชื่อ นามสกุล".AsKhun().ShouldBeEqual("คุณชื่อ นามสกุล"); 
     }
 
     [Fact]
     public void JustOneSpaceBetweenName()
-    {
-      Assert.Equal("คุณชื่อ กลาง นามสกุล", "  คุณชื่อ  กลาง   นามสกุล ".AsKhun());
+    { 
+      "  คุณชื่อ  กลาง   นามสกุล ".AsKhun().ShouldBeEqual("คุณชื่อ กลาง นามสกุล");
     }
 
     [Fact]
@@ -77,8 +78,8 @@ namespace GreatFriends.KhunFacts
       Assert.Equal("คุณชื่อ นามสกุล", "ด.ญ. ชื่อ นามสกุล".AsKhun());
       Assert.Equal("คุณชื่อ นามสกุล", "อ. ชื่อ นามสกุล".AsKhun());
     }
-
-    [Fact(Skip = "Wait someone to grap and resolve it")]
+     
+    [Fact]
     public void Kunakorn()
     {
       Assert.Equal("คุณคุณากร นามสกุล", "คุณากร นามสกุล".AsKhun());
