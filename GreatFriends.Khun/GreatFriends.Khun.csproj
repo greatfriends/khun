@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard1.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
@@ -17,10 +17,10 @@
     <PackageIconUrl>https://avatars2.githubusercontent.com/u/1795432</PackageIconUrl>
   </PropertyGroup>
   <PropertyGroup>
-    <Version>0.4</Version>
-    <FileVersion>0.4</FileVersion>
-    <AssemblyVersion>0.4</AssemblyVersion>
-    <PackageVersion>0.4</PackageVersion>
-    <InformationVersion>0.4</InformationVersion>
+    <Version>1.0.0</Version>
+    <FileVersion>1.0.0</FileVersion>
+    <AssemblyVersion>1.0.0</AssemblyVersion>
+    <PackageVersion>1.0.0</PackageVersion>
+    <InformationVersion>1.0.0</InformationVersion>
   </PropertyGroup>
 </Project>
