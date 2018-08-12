@@ -1,10 +1,10 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard1.0</TargetFrameworks>
     <LangVersion>latest</LangVersion>
     <AssemblyTitle>Khun</AssemblyTitle>
-    <Description>Khun</Description>
-    <Copyright>Copyright © 2015-2018 Suthep Sangvirotjanaphat and Contributors</Copyright>
+    <Description>เพิ่ม "คุณ" ให้กับชื่อของคุณๆ เหมาะสำหรับใช้ระบุชื่อบุคคลด้วยความสุภาพ เช่น "นายสุเทพ".AsKhun() ได้ "คุณสุเทพ" ไม่ใช่ "คุณนายสุเทพ" และ "คุณัญญา".AsKhun() ได้ "คุณคุณัญญา"</Description>
+    <Copyright>Copyright © 2016-2018 Suthep Sangvirotjanaphat and Contributors</Copyright>
     <Authors>Suthep Sangvirotjanaphat</Authors>
     <GenerateDocumentationFile>false</GenerateDocumentationFile>
     <AssemblyName>Khun</AssemblyName>
