@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.0</TargetFrameworks>
+    <LangVersion>latest</LangVersion>
+    <AssemblyTitle>Khun</AssemblyTitle>
+    <Description>Khun</Description>
+    <Copyright>Copyright © 2015-2018 Suthep Sangvirotjanaphat and Contributors</Copyright>
+    <Authors>Suthep Sangvirotjanaphat</Authors>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <AssemblyName>Khun</AssemblyName>
+    <PackageId>Khun</PackageId>
+    <PackageProjectUrl></PackageProjectUrl>
+    <PackageTags>Thai;Name;Khun;คุณ;ชื่อ</PackageTags>
+    <PackageLicenseUrl>https://github.com/greatfriends/khun/blob/master/LICENSE</PackageLicenseUrl>
+    <RepositoryUrl>https://github.com/greatfriends/khun</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageIconUrl>https://avatars2.githubusercontent.com/u/1795432</PackageIconUrl>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Version>0.4</Version>
+    <FileVersion>0.4</FileVersion>
+    <AssemblyVersion>0.4</AssemblyVersion>
+    <PackageVersion>0.4</PackageVersion>
+    <InformationVersion>0.4</InformationVersion>
+  </PropertyGroup>
+</Project>

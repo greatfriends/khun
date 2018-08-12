@@ -1,1 +1,1 @@
-dotnet pack src/khun -c Release -o src/khun/Nuget 
+dotnet pack .\GreatFriends.Khun -c Release -o ".\Nuget Packages"

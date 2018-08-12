@@ -5,41 +5,50 @@ using System.Threading.Tasks;
 using GreatFriends.Khun;
 using Xunit;
 
-namespace GreatFriends.KhunFacts {
-  public class KhunExtensionFacts {
+namespace GreatFriends.KhunFacts
+{
+  public class KhunExtensionFacts
+  {
 
     [Fact]
-    public void EmptyString() {
+    public void EmptyString()
+    {
       Assert.Equal("", "".AsKhun());
     }
 
     [Fact]
-    public void Null() {
+    public void Null()
+    {
       Assert.Equal("", ((string)null).AsKhun());
     }
 
     [Fact]
-    public void JustName() {
+    public void JustName()
+    {
       Assert.Equal("คุณชื่อ นามสกุล", "ชื่อ นามสกุล".AsKhun());
     }
 
     [Fact]
-    public void AlreadyHasKhun() {
+    public void AlreadyHasKhun()
+    {
       Assert.Equal("คุณชื่อ นามสกุล", "คุณชื่อ นามสกุล".AsKhun());
     }
 
     [Fact]
-    public void TrimName() {
+    public void TrimName()
+    {
       Assert.Equal("คุณชื่อ นามสกุล", " คุณชื่อ นามสกุล ".AsKhun());
     }
 
     [Fact]
-    public void JustOneSpaceBetweenName() {
+    public void JustOneSpaceBetweenName()
+    {
       Assert.Equal("คุณชื่อ กลาง นามสกุล", "  คุณชื่อ  กลาง   นามสกุล ".AsKhun());
     }
 
     [Fact]
-    public void RemoveCommonPrefixNames() {
+    public void RemoveCommonPrefixNames()
+    {
       Assert.Equal("คุณชื่อ นามสกุล", "นายชื่อ นามสกุล".AsKhun());
       Assert.Equal("คุณชื่อ นามสกุล", "นางสาวชื่อ นามสกุล".AsKhun());
       Assert.Equal("คุณชื่อ นามสกุล", "นางชื่อ นามสกุล".AsKhun());
@@ -54,7 +63,8 @@ namespace GreatFriends.KhunFacts {
     }
 
     [Fact]
-    public void RemoveCommonPrefixNamesWithSpaces() {
+    public void RemoveCommonPrefixNamesWithSpaces()
+    {
       Assert.Equal("คุณชื่อ นามสกุล", "นาย ชื่อ นามสกุล".AsKhun());
       Assert.Equal("คุณชื่อ นามสกุล", "นางสาว ชื่อ นามสกุล".AsKhun());
       Assert.Equal("คุณชื่อ นามสกุล", "นาง ชื่อ นามสกุล".AsKhun());
@@ -69,14 +79,16 @@ namespace GreatFriends.KhunFacts {
     }
 
     [Fact(Skip = "Wait someone to grap and resolve it")]
-    public void Kunakorn() {
+    public void Kunakorn()
+    {
       Assert.Equal("คุณคุณากร นามสกุล", "คุณากร นามสกุล".AsKhun());
       Assert.Equal("คุณคุณากร นามสกุล", "นายคุณากร นามสกุล".AsKhun());
       Assert.Equal("คุณคุณากร นามสกุล", "คุณคุณากร นามสกุล".AsKhun());
     }
 
     [Fact]
-    public void NotAppendKhunForForeignName() {
+    public void NotAppendKhunForForeignName()
+    {
       Assert.Equal("Donald Trump", "Donald Trump".AsKhun());
       Assert.NotEqual("คุณDonald Trump", "Donald Trump".AsKhun());
 
@@ -85,7 +97,8 @@ namespace GreatFriends.KhunFacts {
     }
 
     [Fact]
-    public void KhunWithSpace_ShouldBeTruncated() {
+    public void KhunWithSpace_ShouldBeTruncated()
+    {
       Assert.Equal("คุณชื่อ นามสกุล", "คุณ ชื่อ นามสกุล".AsKhun());
       Assert.NotEqual("คุณ ชื่อ นามสกุล", "คุณ ชื่อ นามสกุล".AsKhun());
     }

@@ -1,7 +1,9 @@
 ﻿using System;
 
-namespace GreatFriends.Khun {
-  public static class KhunExtension {
+namespace GreatFriends.Khun
+{
+  public static class KhunExtension
+  {
 
     private const string Khun = "คุณ";
     private static string[] prefixes = new string[] {
@@ -18,7 +20,8 @@ namespace GreatFriends.Khun {
       };
 
 
-    public static string AsKhun(this string name) {
+    public static string AsKhun(this string name)
+    {
       string khunToPrepend = Khun;
       string firstName;
 
@@ -31,18 +34,23 @@ namespace GreatFriends.Khun {
       string[] parts = name.Split(new char[] { ' ' },
         StringSplitOptions.RemoveEmptyEntries);
 
-      if (parts[0] == Khun) {
+      if (parts[0] == Khun)
+      {
         parts[0] = string.Empty;
         firstName = parts.Length > 1 ? parts[1] : null;
       }
-      else {
-        if (parts[0].StartsWith(Khun)) {
+      else
+      {
+        if (parts[0].StartsWith(Khun))
+        {
           return string.Join(" ", parts);
         }
 
         firstName = parts[0];
-        for (int i = 0; i < prefixes.Length; i++) {
-          if (parts[0].StartsWith(prefixes[i])) {
+        for (int i = 0; i < prefixes.Length; i++)
+        {
+          if (parts[0].StartsWith(prefixes[i]))
+          {
             int len = prefixes[i].Length;
 
             firstName = parts[0].Substring(len, parts[0].Length - len);
@@ -53,16 +61,20 @@ namespace GreatFriends.Khun {
         }
       }
 
-      if (ContainsNonThaiCharacters(firstName)) {
+      if (ContainsNonThaiCharacters(firstName))
+      {
         khunToPrepend = string.Empty;
       }
 
       return khunToPrepend + string.Join(" ", parts).TrimStart();
     }
 
-    private static bool ContainsNonThaiCharacters(string text) {
-      foreach (var ch in text) {
-        if (!(0x0e00 <= (uint)ch && (uint)ch <= 0x0e7f)) {
+    private static bool ContainsNonThaiCharacters(string text)
+    {
+      foreach (var ch in text)
+      {
+        if (!(0x0e00 <= (uint)ch && (uint)ch <= 0x0e7f))
+        {
           return true;
         }
       }
