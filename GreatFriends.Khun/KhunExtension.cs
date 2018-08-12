@@ -5,8 +5,9 @@ namespace GreatFriends.Khun
   public static class KhunExtension
   {
 
-    private const string Khun = "คุณ";
-    private static string[] prefixes = new string[] {
+    private const string KHUN = "คุณ";
+
+    private static readonly string[] prefixes = {
         "นาย",
         "นางสาว",
         "นาง",
@@ -19,10 +20,30 @@ namespace GreatFriends.Khun
         "อ."
       };
 
+    private static readonly char[] vowels = {
+      'ะ', 'า', 'ิ', 'ี', 'ึ', 'ื', 'ุ', 'ู',
+      'ั'
+    };
+
+    private static readonly string[] FirstNameThatStartsWithKhuns =
+    {
+      "คุณชนะอนันต์",
+      "คุณณพงศ์",
+      "คุณดวง",
+      "คุณนิธี",
+      "คุณน้อง",
+      "คุณปลื้ม",
+      "คุณภัทร",
+      "คุณภาพ",
+      "คุณยาวุฒิ",
+      "คุณวุฒิ",
+      "คุณศรี",
+      "คุณสมบัติ",
+    };
 
     public static string AsKhun(this string name)
     {
-      string khunToPrepend = Khun;
+      string khunToPrepend = KHUN;
       string firstName;
 
       if (name == null) return string.Empty;
@@ -34,17 +55,23 @@ namespace GreatFriends.Khun
       string[] parts = name.Split(new char[] { ' ' },
         StringSplitOptions.RemoveEmptyEntries);
 
-      if (parts[0] == Khun)
+      if (parts[0] == KHUN)
       {
         parts[0] = string.Empty;
         firstName = parts.Length > 1 ? parts[1] : null;
       }
       else
       {
-        if (parts[0].StartsWith(Khun))
+        if (NameStartsWithKhunButActuallyName(parts[0]))
+        {
+          return khunToPrepend + string.Join(" ", parts).TrimStart();
+        }
+
+        if (parts[0].StartsWith(KHUN))
         {
           return string.Join(" ", parts);
         }
+
 
         firstName = parts[0];
         for (int i = 0; i < prefixes.Length; i++)
@@ -67,6 +94,17 @@ namespace GreatFriends.Khun
       }
 
       return khunToPrepend + string.Join(" ", parts).TrimStart();
+    }
+
+    private static bool NameStartsWithKhunButActuallyName(string text)
+    {
+      if (Array.IndexOf(FirstNameThatStartsWithKhuns, text) >= 0) return true;
+
+      if (!text.StartsWith(KHUN)) return false;
+      if (text.Length <= 3) return false;
+      if (Array.IndexOf(vowels, text[3]) < 0) return false;
+
+      return true;
     }
 
     private static bool ContainsNonThaiCharacters(string text)

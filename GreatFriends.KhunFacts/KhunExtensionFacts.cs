@@ -14,7 +14,7 @@ namespace GreatFriends.KhunFacts
     [Fact]
     public void EmptyString()
     {
-      "".AsKhun().ShouldBeEqual(""); 
+      "".AsKhun().ShouldBeEqual("");
     }
 
     [Fact]
@@ -25,25 +25,37 @@ namespace GreatFriends.KhunFacts
 
     [Fact]
     public void JustName()
-    { 
+    {
       "ชื่อ นามสกุล".AsKhun().ShouldBeEqual("คุณชื่อ นามสกุล");
     }
 
     [Fact]
+    public void KhunFirstNameLastName()
+    {
+      "คุณ ชื่อ นามสกุล".AsKhun().ShouldBeEqual("คุณชื่อ นามสกุล");
+    }
+
+    [Fact]
+    public void OnlyKhun_TreatNextWordAsName()
+    {
+      "คุณ นามสกุล".AsKhun().ShouldBeEqual("คุณนามสกุล");
+    }
+
+    [Fact]
     public void AlreadyHasKhun()
-    { 
+    {
       "คุณชื่อ นามสกุล".AsKhun().ShouldBeEqual("คุณชื่อ นามสกุล");
     }
 
     [Fact]
     public void TrimName()
     {
-      " คุณชื่อ นามสกุล".AsKhun().ShouldBeEqual("คุณชื่อ นามสกุล"); 
+      " คุณชื่อ นามสกุล".AsKhun().ShouldBeEqual("คุณชื่อ นามสกุล");
     }
 
     [Fact]
     public void JustOneSpaceBetweenName()
-    { 
+    {
       "  คุณชื่อ  กลาง   นามสกุล ".AsKhun().ShouldBeEqual("คุณชื่อ กลาง นามสกุล");
     }
 
@@ -78,14 +90,6 @@ namespace GreatFriends.KhunFacts
       Assert.Equal("คุณชื่อ นามสกุล", "ด.ญ. ชื่อ นามสกุล".AsKhun());
       Assert.Equal("คุณชื่อ นามสกุล", "อ. ชื่อ นามสกุล".AsKhun());
     }
-     
-    [Fact]
-    public void Kunakorn()
-    {
-      Assert.Equal("คุณคุณากร นามสกุล", "คุณากร นามสกุล".AsKhun());
-      Assert.Equal("คุณคุณากร นามสกุล", "นายคุณากร นามสกุล".AsKhun());
-      Assert.Equal("คุณคุณากร นามสกุล", "คุณคุณากร นามสกุล".AsKhun());
-    }
 
     [Fact]
     public void NotAppendKhunForForeignName()
@@ -102,6 +106,25 @@ namespace GreatFriends.KhunFacts
     {
       Assert.Equal("คุณชื่อ นามสกุล", "คุณ ชื่อ นามสกุล".AsKhun());
       Assert.NotEqual("คุณ ชื่อ นามสกุล", "คุณ ชื่อ นามสกุล".AsKhun());
+    }
+
+    [Fact]
+    public void DetectForthCharacter_Eq_Sara()
+    {
+      "คุณากร นามสกุล".AsKhun().ShouldBeEqual("คุณคุณากร นามสกุล");
+      "คุณคุณากร นามสกุล".AsKhun().ShouldBeEqual("คุณคุณากร นามสกุล");
+
+      "คุณัญญา นามสกุล".AsKhun().ShouldBeEqual("คุณคุณัญญา นามสกุล");
+      "คุณคุณัญญา นามสกุล".AsKhun().ShouldBeEqual("คุณคุณัญญา นามสกุล"); 
+
+      "คุณิติณณ์ สกุล".AsKhun().ShouldBeEqual("คุณคุณิติณณ์ สกุล");
+    }
+
+    [Fact]
+    public void SpecialNameStartsWithKhun()
+    {
+      "คุณชนะอนันต์ นามสกุล".AsKhun().ShouldBeEqual("คุณคุณชนะอนันต์ นามสกุล");
+      "คุณคุณชนะอนันต์ นามสกุล".AsKhun().ShouldBeEqual("คุณคุณชนะอนันต์ นามสกุล"); 
     }
   }
 }
